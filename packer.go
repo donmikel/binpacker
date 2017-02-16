@@ -14,10 +14,10 @@ type Packer struct {
 }
 
 // NewPacker returns a *Packer hold an io.Writer.
-func NewPacker(writer io.Writer) *Packer {
+func NewPacker(writer io.Writer, endian binary.ByteOrder) *Packer {
 	return &Packer{
 		writer: writer,
-		endian: binary.LittleEndian,
+		endian: endian,
 	}
 }
 

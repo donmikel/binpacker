@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"encoding/binary"
 	"io"
-	"unsafe"
 	"math"
+	"unsafe"
 )
 
 // Unpacker helps you unpack binary data from an io.Reader.
@@ -16,10 +16,10 @@ type Unpacker struct {
 }
 
 // NewUnpacker returns a *Unpacker which hold an io.Reader.
-func NewUnpacker(reader io.Reader) *Unpacker {
+func NewUnpacker(reader io.Reader, endian binary.ByteOrder) *Unpacker {
 	return &Unpacker{
 		reader: reader,
-		endian: binary.LittleEndian,
+		endian: endian,
 	}
 }
 
